@@ -1,6 +1,6 @@
 # nvim-config
 
-[Salar Rahmanian](https://www.softinio.com) [neovim](https://neovim.io/)
+[Salar Rahmanian](https://www.softinio.com)'s [neovim](https://neovim.io/) Configuration
 
 ### Credit
 
