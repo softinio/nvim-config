@@ -24,7 +24,7 @@ return {
       require("trouble").setup()
     end,
   },
-  "folke/which-key.nvim",
+  { "folke/which-key.nvim", lazy = false },
   {
     "j-hui/fidget.nvim",
     config = function()
