@@ -10,19 +10,27 @@ return {
   },
   config = function()
     local metals_config = require("metals").bare_config()
+    metals_config.tvp = {
+      icons = {
+        enabled = true,
+      },
+    }
 
     metals_config.settings = {
       serverVersion = "latest.snapshot",
       showImplicitArguments = true,
+      showImplicitConversionsAndClasses = true,
       showInferredType = true,
       bloopSbtAlreadyInstalled = true,
       excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
-      fallbackScalaVersion = "2.13.8",
+      -- fallbackScalaVersion = "2.13.8",
       superMethodLensesEnabled = true,
       javaHome = "/Users/salar/.nix-profile",
     }
 
     metals_config.on_attach = function(client, bufnr)
+      vim.keymap.set("n", "<leader>tt", require("metals.tvp").toggle_tree_view)
+      vim.keymap.set("n", "<leader>tr", require("metals.tvp").reveal_in_tree)
       vim.cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
       vim.cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
       vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
