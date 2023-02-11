@@ -12,9 +12,21 @@ return {
     local metals_config = require("metals").bare_config()
 
     metals_config.settings = {
+      serverVersion = "latest.snapshot",
       showImplicitArguments = true,
+      showInferredType = true,
+      bloopSbtAlreadyInstalled = true,
       excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+      fallbackScalaVersion = "2.13.8",
+      superMethodLensesEnabled = true,
+      javaHome = "/Users/salar/.nix-profile",
     }
+
+    metals_config.on_attach = function(client, bufnr)
+      vim.cmd([[autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()]])
+      vim.cmd([[autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()]])
+      vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+    end
 
     metals_config.init_options.statusBarProvider = "on"
 
