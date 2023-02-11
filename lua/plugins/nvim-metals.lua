@@ -2,6 +2,11 @@ return {
   "scalameta/nvim-metals",
   keys = {
     { "<leader>ws", "<cmd>lua require'metals'.hover_worksheet()<cr>", desc = "Metals Worksheet" },
+    {
+      "<leader>sm",
+      "<cmd>lua require'telescope'.extensions.metals.commands()<cr>",
+      desc = "Telescope Metals Commands",
+    },
   },
   config = function()
     local metals_config = require("metals").bare_config()
