@@ -60,5 +60,16 @@ return {
       require("Comment").setup()
     end,
   },
-  {"ellisonleao/glow.nvim", config = true, cmd = "Glow"}
+  "SidOfc/mkdx",
+  {
+    "ellisonleao/glow.nvim",
+    cmd = "Glow",
+    config = function ()
+      require('glow').setup({
+        style = "dark",
+        width = 120,
+        install_path = "~/.nix-profile/bin/glow"
+      })
+    end
+  }
 }
