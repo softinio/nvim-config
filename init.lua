@@ -17,7 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json", -- in data directory as normal location read only as managed by nix 
+  dev = {
+    path = "~/Projects/Neovim"
+  }
+})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
