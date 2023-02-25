@@ -60,5 +60,5 @@ return {
       require("Comment").setup()
     end,
   },
-  "SidOfc/mkdx"
+  "SidOfc/mkdx",
 }
