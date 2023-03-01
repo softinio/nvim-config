@@ -81,6 +81,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
+-- Terminal Escape Key Mapping
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
