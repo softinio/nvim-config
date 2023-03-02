@@ -71,6 +71,7 @@ return {
 
       lua_ls = {
         Lua = {
+          diagnostics = { globals = {  'vim' } },
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
         },
