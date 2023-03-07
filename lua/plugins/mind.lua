@@ -11,8 +11,8 @@ return {
   config = function()
     require("mind").setup({
       persistence = {
-        dataDir = "~/Documents/mind.nvim/data",
-        statePath = "~/Documents/mind.nvim/mind.json",
+        data_dir = "~/Documents/mind.nvim/data",
+        state_path = "~/Documents/mind.nvim/mind.json",
       },
     })
   end,
