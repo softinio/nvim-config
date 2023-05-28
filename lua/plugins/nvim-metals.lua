@@ -1,5 +1,6 @@
 return {
   "scalameta/nvim-metals",
+  lazy = false,
   keys = {
     { "<leader>ws", "<cmd>lua require'metals'.hover_worksheet()<cr>", desc = "Metals Worksheet" },
     {
