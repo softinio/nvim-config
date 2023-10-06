@@ -8,7 +8,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       vim.g.tokyonight_style = "night"
@@ -16,6 +16,18 @@ return {
       vim.o.termguicolors = true
       -- load the colorscheme here
       vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
+  { 
+    "ellisonleao/gruvbox.nvim", 
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000 , 
+    config = function()
+      require("gruvbox").setup({
+        dim_inactive = false,
+      })
+      vim.o.background = "light"
+      vim.cmd([[colorscheme gruvbox]])
     end,
   },
   {
