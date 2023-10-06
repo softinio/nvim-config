@@ -49,7 +49,7 @@ return {
     main = "ibl",
     config = function()
       require("ibl").setup({
-        char = "┊",
+        indent = { char = "┊" },
       })
     end,
   },
