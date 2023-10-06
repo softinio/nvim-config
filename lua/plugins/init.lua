@@ -27,6 +27,8 @@ return {
   { "folke/which-key.nvim", lazy = false },
   {
     "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
     config = function()
       require("fidget").setup()
     end,
@@ -44,10 +46,10 @@ return {
   "softinio/scaladex.nvim",
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     config = function()
       require("indent_blankline").setup({
         char = "┊",
-        show_trailing_blankline_indent = false,
       })
     end,
   },
