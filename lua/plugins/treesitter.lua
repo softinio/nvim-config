@@ -16,7 +16,6 @@ return {
         "python",
         "rust",
         "typescript",
-        "help",
         "vim",
         "scala",
         "bash",
