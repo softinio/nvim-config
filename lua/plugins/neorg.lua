@@ -14,7 +14,6 @@ return {
         load = {
           ["core.defaults"] = {},
           ["core.summary"] = {},
-          ["core.ui.calendar"] = {},
           ["core.concealer"] = {
             config = {
               icon_preset = "diamond",
