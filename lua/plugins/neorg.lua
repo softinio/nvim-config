@@ -1,17 +1,30 @@
 return {
   "nvim-neorg/neorg",
+  lazy = false,
   build = ":Neorg sync-parsers",
   dependencies = { "nvim-lua/plenary.nvim" },
+  keys = {
+    { "<leader>ni", "<cmd>Neorg index<cr>", desc = "Index" },
+    { "<leader>ns", "<cmd>Neorg generate-workspace-summary<cr>", desc = "Generate Workspace Summary" },
+    { "<leader>njt", "<cmd>Neorg journal today<cr>", desc = "Journal Today" },
+    { "<leader>njT", "<cmd>Neorg journal template<cr>", desc = "Journal Template" },
+  },
   config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
+          ["core.defaults"] = {},
+          ["core.summary"] = {},
+          ["core.ui.calendar"] = {},
+          ["core.concealer"] = {
+            icon_preset = "diamond"
+          },
+          ["core.dirman"] = {
             config = {
               workspaces = {
                 notes = "~/notes",
+                til = "~/til",
               },
+              default_workspace = "notes",
             },
           },
         },
