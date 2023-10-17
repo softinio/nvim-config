@@ -16,7 +16,7 @@ return {
           ["core.summary"] = {},
           ["core.ui.calendar"] = {},
           ["core.concealer"] = {
-            icon_preset = "diamond"
+            icon_preset = "diamond",
           },
           ["core.dirman"] = {
             config = {
