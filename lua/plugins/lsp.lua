@@ -57,18 +57,12 @@ return {
       end, { desc = "Format current buffer with LSP" })
     end
 
-    -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-    --
-    --  Add any additional override configuration in the following tables. They will be passed to
-    --  the `settings` field of the server config. You must look up that documentation yourself.
     local servers = {
-      -- clangd = {},
-      -- gopls = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      -- tsserver = {},
-
+      bashls = {
+        bashIde = {
+          globPattern = "*@(.sh|.inc|.bash|.command)"
+        }
+      },
       lua_ls = {
         Lua = {
           diagnostics = { globals = {  'vim' } },
@@ -76,6 +70,22 @@ return {
           telemetry = { enable = false },
         },
       },
+      html = {},
+      jqls = {},
+      jsonls = {},
+      marksman = {},
+      pyright = {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "openFilesOnly",
+            useLibraryCodeForTypes = true
+          }
+        }
+      },
+      rnix = {},
+      tsserver = {},
+      yamlls = {},
     }
 
     --
