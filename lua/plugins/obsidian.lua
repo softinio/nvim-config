@@ -2,8 +2,8 @@ return {
   "epwalsh/obsidian.nvim",
   lazy = true,
   event = {
-    "BufReadPre " .. vim.fn.expand "~" .. "/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Notes/**.md",
-    "BufNewFile " .. vim.fn.expand "~" .. "/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Notes/**.md",
+    "BufReadPre " .. vim.fn.expand "~" .. "\"/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/**.md\"",
+    "BufNewFile " .. vim.fn.expand "~" .. "\"/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/**.md\"",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -18,7 +18,7 @@ return {
     workspaces = {
       {
         name = "personal",
-	path = "~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Notes",
+	path = "\"~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes\"",
       },
     },
     use_advanced_uri = false,
