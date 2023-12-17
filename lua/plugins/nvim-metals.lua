@@ -27,7 +27,6 @@ return {
       excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
       -- fallbackScalaVersion = "2.13.8",
       superMethodLensesEnabled = true,
-      javaHome = "/Users/salar/.nix-profile",
     }
 
     metals_config.on_attach = function(client, bufnr)
