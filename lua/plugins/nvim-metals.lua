@@ -19,6 +19,7 @@ return {
 
     metals_config.settings = {
       serverVersion = "latest.snapshot",
+      useGlobalExecutable = true,
       showImplicitArguments = true,
       showImplicitConversionsAndClasses = true,
       showInferredType = true,
