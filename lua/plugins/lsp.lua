@@ -60,12 +60,12 @@ return {
     local servers = {
       bashls = {
         bashIde = {
-          globPattern = "*@(.sh|.inc|.bash|.command)"
-        }
+          globPattern = "*@(.sh|.inc|.bash|.command)",
+        },
       },
       lua_ls = {
         Lua = {
-          diagnostics = { globals = {  'vim' } },
+          diagnostics = { globals = { "vim" } },
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
         },
@@ -79,11 +79,16 @@ return {
           analysis = {
             autoSearchPaths = true,
             diagnosticMode = "openFilesOnly",
-            useLibraryCodeForTypes = true
-          }
-        }
+            useLibraryCodeForTypes = true,
+          },
+        },
       },
       rnix = {},
+      rust_analyzer = {
+        diagnostics = {
+          enable = true,
+        },
+      },
       tsserver = {},
       yamlls = {},
     }
