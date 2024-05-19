@@ -10,4 +10,3 @@ return {
     { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
   },
 }
-

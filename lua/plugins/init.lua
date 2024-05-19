@@ -18,18 +18,6 @@ return {
       vim.cmd([[colorscheme tokyonight]])
     end,
   },
-  { 
-    "ellisonleao/gruvbox.nvim",
-    lazy = true, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000 ,
-    config = function()
-      require("gruvbox").setup({
-        dim_inactive = false,
-      })
-      vim.o.background = "light"
-      vim.cmd([[colorscheme gruvbox]])
-    end,
-  },
   {
     "folke/trouble.nvim",
     config = function()
@@ -63,15 +51,6 @@ return {
       require("ibl").setup({
         indent = { char = "┊" },
       })
-    end,
-  },
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
-  "tpope/vim-sleuth",
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
     end,
   },
   "SidOfc/mkdx",
