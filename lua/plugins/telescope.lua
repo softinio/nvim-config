@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "debugloop/telescope-undo.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   config = function()
     require("telescope").setup({
@@ -21,6 +22,7 @@ return {
     -- Enable telescope fzf native, if installed
     pcall(require("telescope").load_extension, "fzf")
     pcall(require("telescope").load_extension, "scaladex")
+    pcall(require("telescope").load_extension, "ui-select")
     pcall(require("telescope").load_extension, "undo")
 
     -- See `:help telescope.builtin`
