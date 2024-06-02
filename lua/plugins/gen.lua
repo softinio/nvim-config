@@ -1,6 +1,6 @@
 return {
   "David-Kunz/gen.nvim",
-  lazy = false,
+  lazy = true,
   keys = {
     { "<leader>ai", ":Gen<CR>", mode = { "n", "v" }, desc = "AI tools using Ollama" },
     { "<leader>aa", ":Gen Ask<CR>", mode = { "n", "v" }, desc = "[A]I [A]sk" },
