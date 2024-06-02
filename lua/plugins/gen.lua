@@ -15,7 +15,7 @@ return {
   },
   config = function()
     require("gen").setup({
-      ollama = {
+      {
         model = "codellama",
         host = "localhost",
         port = "11434",
