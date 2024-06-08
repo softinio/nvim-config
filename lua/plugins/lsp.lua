@@ -74,6 +74,7 @@ return {
       jqls = {},
       jsonls = {},
       marksman = {},
+      nil_ls = {},
       pyright = {
         python = {
           analysis = {
@@ -83,7 +84,6 @@ return {
           },
         },
       },
-      rnix = {},
       rust_analyzer = {
         diagnostics = {
           enable = true,
