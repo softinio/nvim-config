@@ -4,6 +4,7 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
+        nix = { "nixfmt" },
         python = function(bufnr)
           if require("conform").get_formatter_info("ruff_format", bufnr).available then
             return { "ruff_fix", "ruff_format" }
