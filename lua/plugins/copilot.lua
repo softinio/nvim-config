@@ -4,7 +4,7 @@ return {
   config = function()
     vim.api.nvim_set_keymap(
       "i",
-      "<C-Tab>",
+      "<C-J>",
       'copilot#Accept("\\<CR>")',
       { silent = true, script = true, expr = true, replace_keycodes = false }
     )
