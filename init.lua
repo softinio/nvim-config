@@ -47,6 +47,9 @@ else
   -- Enable break indent
   vim.o.breakindent = true
 
+  -- smart indenting
+  vim.o.smartindent = false
+
   -- Save undo history
   vim.o.undofile = true
 
