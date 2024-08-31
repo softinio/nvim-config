@@ -75,13 +75,21 @@ return {
       jsonls = {},
       marksman = {},
       nil_ls = {},
-      pyright = {
+      basedpyright = {
         python = {
           analysis = {
             autoImportCompletions = true,
             autoSearchPaths = true,
-            diagnosticMode = "openFilesOnly",
-            typeCheckingMode = "basic",
+            diagnosticMode = "workspace",
+            reportMissingImports = true,
+            reportMissingParameterType = true,
+            reportUnnecessaryComparison = true,
+            reportUnnecessaryContains = true,
+            reportUnusedClass = true,
+            reportUnusedFunction = true,
+            reportUnsedImports = true,
+            reportUnsusedVariables = true,
+            typeCheckingMode = "all",
             useLibraryCodeForTypes = true,
           },
         },
