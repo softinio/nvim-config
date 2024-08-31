@@ -78,8 +78,10 @@ return {
       pyright = {
         python = {
           analysis = {
+            autoImportCompletions = true,
             autoSearchPaths = true,
             diagnosticMode = "openFilesOnly",
+            typeCheckingMode = "basic",
             useLibraryCodeForTypes = true,
           },
         },
