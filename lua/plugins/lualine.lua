@@ -27,7 +27,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
-        lualine_x = { "g:metals_status", "encoding", "fileformat", "filetype" },
+        lualine_x = { "g:metals_status", "encoding", "fileformat", "filetype", "overseer" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
