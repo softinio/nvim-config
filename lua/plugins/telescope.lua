@@ -6,6 +6,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
+    "AckslD/nvim-neoclip.lua",
   },
   config = function()
     require("telescope").setup({
