@@ -9,7 +9,7 @@ return {
     enable_persistent_history = true,
     length_limit = 1048576,
     continuous_sync = false,
-    db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
+    db_path = vim.fn.stdpath("data") .. "~/.config/databases/neoclip.sqlite3",
     filter = nil,
     preview = true,
     prompt = nil,
