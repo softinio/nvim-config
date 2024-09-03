@@ -6,7 +6,6 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "debugloop/telescope-undo.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
-    "AckslD/nvim-neoclip.lua",
   },
   config = function()
     require("telescope").setup({
@@ -25,7 +24,6 @@ return {
     pcall(require("telescope").load_extension, "scaladex")
     pcall(require("telescope").load_extension, "ui-select")
     pcall(require("telescope").load_extension, "undo")
-    pcall(require("telescope").load_extension, "neoclip")
 
     -- See `:help telescope.builtin`
     vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
