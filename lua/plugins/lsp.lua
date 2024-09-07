@@ -63,6 +63,7 @@ return {
           globPattern = "*@(.sh|.inc|.bash|.command)",
         },
       },
+      fish_lsp = {},
       lua_ls = {
         Lua = {
           diagnostics = { globals = { "vim" } },
@@ -75,6 +76,7 @@ return {
       jsonls = {},
       marksman = {},
       nil_ls = {},
+      nixd = {},
       basedpyright = {
         analysis = {
           autoImportCompletions = true,
@@ -97,7 +99,7 @@ return {
           enable = true,
         },
       },
-      tsserver = {},
+      ts_ls = {},
       yamlls = {},
     }
 
