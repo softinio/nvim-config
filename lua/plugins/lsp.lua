@@ -1,10 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- Automatically install LSPs to stdpath for neovim
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-
     -- Useful status updates for LSP
     "j-hui/fidget.nvim",
 
@@ -13,6 +9,8 @@ return {
   },
   config = function()
     -- LSP settings.
+    -- Require the lspconfig module
+    local lspconfig = require("lspconfig")
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
       -- NOTE: Remember that lua is a real programming language, and as such it is possible
@@ -101,30 +99,18 @@ return {
       ts_ls = {},
       yamlls = {},
     }
-
-    --
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    -- Setup mason so it can manage external tooling
-    require("mason").setup()
-
-    -- Ensure the servers above are installed
-    local mason_lspconfig = require("mason-lspconfig")
-
-    mason_lspconfig.setup({
-      ensure_installed = vim.tbl_keys(servers),
-    })
-
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = servers[server_name],
-        })
-      end,
-    })
+    -- Iterate over the servers table and configure each one
+    for server, config in pairs(servers) do
+      -- Set up the server using the `config` if provided, otherwise just `on_attach` and `capabilities`
+      lspconfig[server].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = config, -- Pass the specific server settings here
+      })
+    end
   end,
 }
