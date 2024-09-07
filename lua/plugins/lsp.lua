@@ -63,7 +63,6 @@ return {
           globPattern = "*@(.sh|.inc|.bash|.command)",
         },
       },
-      fish_lsp = {},
       lua_ls = {
         Lua = {
           diagnostics = { globals = { "vim" } },
