@@ -6,6 +6,9 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing
     "folke/neodev.nvim",
+
+    -- schemas for json and yaml files
+    "b0o/schemastore.nvim",
   },
   config = function()
     -- LSP settings.
@@ -70,7 +73,22 @@ return {
       },
       html = {},
       jqls = {},
-      jsonls = {},
+      jsonls = {
+        json = {
+          format = {
+            enable = true,
+          },
+          schemas = require("schemastore").json.schemas(),
+          validate = true,
+        },
+      },
+      pyright = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true,
+        },
+      },
       marksman = {},
       nil_ls = {},
       nixd = {},
