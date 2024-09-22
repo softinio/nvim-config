@@ -88,6 +88,16 @@ else
     pattern = "*",
   })
 
+  -- sets the tab size for json files
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "json",
+    callback = function()
+      vim.bo.tabstop = 2
+      vim.bo.shiftwidth = 2
+      vim.bo.expandtab = true
+    end,
+  })
+
   -- Terminal Escape Key Mapping
   vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
