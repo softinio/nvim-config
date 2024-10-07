@@ -90,7 +90,7 @@ else
 
   -- sets the tab size for json files
   vim.api.nvim_create_autocmd("FileType", {
-    pattern = "json",
+    pattern = { "json", "lua", "nix" },
     callback = function()
       vim.bo.tabstop = 2
       vim.bo.shiftwidth = 2
