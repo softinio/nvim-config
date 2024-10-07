@@ -6,7 +6,7 @@ return {
   opts = {
     provider = "openai",
     openai = {
-      api_key_name = "cmd:cat ~/.openai",
+      api_key_name = "cmd:cat /Users/salar/.openai",
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
