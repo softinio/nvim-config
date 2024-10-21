@@ -5,7 +5,6 @@ return {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "rcasia/neotest-java",
     "nvim-neotest/neotest-python",
     "stevanmilic/neotest-scala",
   },
@@ -24,7 +23,6 @@ return {
   },
   opts = {
     adapters = {
-      ["neotest-java"] = {},
       ["neotest-python"] = {
         runner = "pytest",
         args = { "-vvv" },
