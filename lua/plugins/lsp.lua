@@ -82,13 +82,6 @@ return {
           validate = true,
         },
       },
-      pyright = {
-        analysis = {
-          autoSearchPaths = true,
-          diagnosticMode = "workspace",
-          useLibraryCodeForTypes = true,
-        },
-      },
       marksman = {},
       nil_ls = {},
       nixd = {},
