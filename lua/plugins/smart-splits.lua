@@ -1,27 +1,26 @@
 return {
   { "mrjones2014/smart-splits.nvim" },
   lazy = false,
-  config = function()
-    local smart_splits = require("smart-splits")
-    local keymap = vim.keymap
-    -- recommended mappings
+  keys = {
     -- resizing splits
-    -- these keymaps will also accept a range,
-    -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-    keymap.set("n", "<A-h>", smart_splits.resize_left)
-    keymap.set("n", "<A-j>", smart_splits.resize_down)
-    keymap.set("n", "<A-k>", smart_splits.resize_up)
-    keymap.set("n", "<A-l>", smart_splits.resize_right)
+    { "<A-a>", ":lua require('smart-splits').resize_left()<CR>", desc = "smart split: resize left" },
+    { "<A-o>", ":lua require('smart-splits').resize_down()<CR>", desc = "smart split: resize down" },
+    { "<A-e>", ":lua require('smart-splits').resize_up()<CR>", desc = "smart split: resize up" },
+    { "<A-u>", ":lua require('smart-splits').resize_right()<CR>", desc = "smart split: resize right" },
     -- moving between splits
-    keymap.set("n", "<C-h>", smart_splits.move_cursor_left)
-    keymap.set("n", "<C-j>", smart_splits.move_cursor_down)
-    keymap.set("n", "<C-k>", smart_splits.move_cursor_up)
-    keymap.set("n", "<C-l>", smart_splits.move_cursor_right)
-    keymap.set("n", "<C-\\>", smart_splits.move_cursor_previous)
+    { "<C-a>", ":lua require('smart-splits').move_cursor_left()<CR>", desc = "smart split: move cursor left" },
+    { "<C-o>", ":lua require('smart-splits').move_cursor_down()<CR>", desc = "smart split: move cursor up" },
+    { "<C-e>", ":lua require('smart-splits').move_cursor_up()<CR>", desc = "smart split: move cursor up" },
+    { "<C-u>", ":lua require('smart-splits').move_cursor_right()<CR>", desc = "smart split: move cursor right" },
+    {
+      "<C-\\>",
+      ":lua require('smart-splits').move_cursor_previous()<CR>",
+      desc = "smart split: move cursor to previous",
+    },
     -- swapping buffers between windows
-    keymap.set("n", "<leader><leader>h", smart_splits.swap_buf_left)
-    keymap.set("n", "<leader><leader>j", smart_splits.swap_buf_down)
-    keymap.set("n", "<leader><leader>k", smart_splits.swap_buf_up)
-    keymap.set("n", "<leader><leader>l", smart_splits.swap_buf_right)
-  end,
+    { "<leader><leader>a", ":lua require('smart-splits').swap_buf_left()<CR>", desc = "smart split: swap left" },
+    { "<leader><leader>o", ":lua require('smart-splits').swap_buf_down()<CR>", desc = "smart split: swap down" },
+    { "<leader><leader>e", ":lua require('smart-splits').swap_buf_up()<CR>", desc = "smart split: swap up" },
+    { "<leader><leader>u", ":lua require('smart-splits').swap_buf_right()<CR>", desc = "smart split: swap right" },
+  },
 }
