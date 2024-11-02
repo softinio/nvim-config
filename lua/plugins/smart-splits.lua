@@ -3,20 +3,24 @@ return {
   lazy = false,
   keys = {
     -- resizing splits
-    { "n", "<A-a>", ":lua require('smart-splits').resize_left()<CR>" },
-    { "n", "<A-o>", ":lua require('smart-splits').resize_down()<CR>" },
-    { "n", "<A-e>", ":lua require('smart-splits').resize_up()<CR>" },
-    { "n", "<A-u>", ":lua require('smart-splits').resize_right()<CR>" },
+    { "<A-a>", ":lua require('smart-splits').resize_left()<CR>", desc = "smart split: resize left" },
+    { "<A-o>", ":lua require('smart-splits').resize_down()<CR>", desc = "smart split: resize down" },
+    { "<A-e>", ":lua require('smart-splits').resize_up()<CR>", desc = "smart split: resize up" },
+    { "<A-u>", ":lua require('smart-splits').resize_right()<CR>", desc = "smart split: resize right" },
     -- moving between splits
-    { "n", "<C-a>", ":lua require('smart-splits').move_cursor_left()<CR>" },
-    { "n", "<C-o>", ":lua require('smart-splits').move_cursor_down()<CR>" },
-    { "n", "<C-e>", ":lua require('smart-splits').move_cursor_up()<CR>" },
-    { "n", "<C-u>", ":lua require('smart-splits').move_cursor_right()<CR>" },
-    { "n", "<C-\\>", ":lua require('smart-splits').move_cursor_previous()<CR>" },
+    { "<C-a>", ":lua require('smart-splits').move_cursor_left()<CR>", desc = "smart split: move cursor left" },
+    { "<C-o>", ":lua require('smart-splits').move_cursor_down()<CR>", desc = "smart split: move cursor up" },
+    { "<C-e>", ":lua require('smart-splits').move_cursor_up()<CR>", desc = "smart split: move cursor up" },
+    { "<C-u>", ":lua require('smart-splits').move_cursor_right()<CR>", desc = "smart split: move cursor right" },
+    {
+      "<C-\\>",
+      ":lua require('smart-splits').move_cursor_previous()<CR>",
+      desc = "smart split: move cursor to previous",
+    },
     -- swapping buffers between windows
-    { "n", "<leader><leader>a", ":lua require('smart-splits').swap_buf_left()<CR>" },
-    { "n", "<leader><leader>o", ":lua require('smart-splits').swap_buf_down()<CR>" },
-    { "n", "<leader><leader>e", ":lua require('smart-splits').swap_buf_up()<CR>" },
-    { "n", "<leader><leader>u", ":lua require('smart-splits').swap_buf_right()<CR>" },
+    { "<leader><leader>a", ":lua require('smart-splits').swap_buf_left()<CR>", desc = "smart split: swap left" },
+    { "<leader><leader>o", ":lua require('smart-splits').swap_buf_down()<CR>", desc = "smart split: swap down" },
+    { "<leader><leader>e", ":lua require('smart-splits').swap_buf_up()<CR>", desc = "smart split: swap up" },
+    { "<leader><leader>u", ":lua require('smart-splits').swap_buf_right()<CR>", desc = "smart split: swap right" },
   },
 }
