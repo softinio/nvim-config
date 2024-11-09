@@ -16,11 +16,7 @@ return {
     local lspconfig = require("lspconfig")
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
-      -- NOTE: Remember that lua is a real programming language, and as such it is possible
-      -- to define small helper and utility functions so you don't have to repeat yourself
-      -- many times.
-      --
-      -- In this case, we create a function that lets us more easily define mappings specific
+      -- We create a function that lets us more easily define mappings specific
       -- for LSP related items. It sets the mode, buffer and description for us each time.
       local nmap = function(keys, func, desc)
         if desc then
@@ -59,32 +55,6 @@ return {
     end
 
     local servers = {
-      bashls = {
-        bashIde = {
-          globPattern = "*@(.sh|.inc|.bash|.command)",
-        },
-      },
-      lua_ls = {
-        Lua = {
-          diagnostics = { globals = { "vim" } },
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
-        },
-      },
-      html = {},
-      jqls = {},
-      jsonls = {
-        json = {
-          format = {
-            enable = true,
-          },
-          schemas = require("schemastore").json.schemas(),
-          validate = true,
-        },
-      },
-      marksman = {},
-      nil_ls = {},
-      nixd = {},
       basedpyright = {
         analysis = {
           autoImportCompletions = true,
@@ -102,9 +72,42 @@ return {
           useLibraryCodeForTypes = true,
         },
       },
+      bashls = {
+        bashIde = {
+          globPattern = "*@(.sh|.inc|.bash|.command)",
+        },
+      },
+      html = {},
+      jqls = {},
+      jsonls = {
+        json = {
+          format = {
+            enable = true,
+          },
+          schemas = require("schemastore").json.schemas(),
+          validate = true,
+        },
+      },
+      lua_ls = {
+        Lua = {
+          diagnostics = { globals = { "vim" } },
+          workspace = { checkThirdParty = false },
+          telemetry = { enable = false },
+        },
+      },
+      marksman = {},
+      nil_ls = {},
+      nixd = {},
       rust_analyzer = {
         diagnostics = {
           enable = true,
+        },
+      },
+      sourcekit = {
+        workspace = {
+          didChangeConfiguration = {
+            dynamicRegistration = true,
+          },
         },
       },
       ts_ls = {},
