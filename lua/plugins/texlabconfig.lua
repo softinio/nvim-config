@@ -4,16 +4,21 @@ return {
   dependencies = { "lervag/vimtex" },
   config = function()
     -- vimtex
-    vim.g.vimtex_view_method = "zathura"
+    vim.g.vimtex_view_method = "sioyek"
     vim.g.vimtex_compiler_method = "tectonic"
 
     -- nvim-texlabconfig
     local tex_preview_executable = "zathura"
     local tex_preview_args = {
-      "--synctex-editor-command",
-      [[nvim-texlabconfig -file '%%%{input}' -line %%%{line} -server ]] .. vim.v.servername,
-      "--synctex-forward",
-      "%l:1:%f",
+      "--reuse-window",
+      "--execute-command",
+      "toggle_synctex", -- Open Sioyek in synctex mode.
+      "--inverse-search",
+      [[nvim-texlabconfig -file %%%1 -line %%%2 -server ]] .. vim.v.servername,
+      "--forward-search-file",
+      "%f",
+      "--forward-search-line",
+      "%l",
       "%p",
     }
     local texlab_build_executable = "tectonic"
