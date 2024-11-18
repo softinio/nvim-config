@@ -4,24 +4,12 @@ return {
   dependencies = { "lervag/vimtex" },
   config = function()
     -- vimtex
-    vim.g.vimtex_view_method = "sioyek"
+    vim.g.vimtex_view_method = "skim"
     vim.g.vimtex_compiler_method = "tectonic"
 
     -- nvim-texlabconfig
-    local tex_preview_executable = "zathura"
-    local tex_preview_args = {
-      "--reuse-window",
-      "--execute-command",
-      "toggle_synctex", -- Open Sioyek in synctex mode.
-      "--inverse-search",
-      [[/Users/salar/.local/share/nvim/lazy/nvim-texl/nvim-texlabconfig -file %%%1 -line %%%2 -server ]]
-        .. vim.v.servername,
-      "--forward-search-file",
-      "%f",
-      "--forward-search-line",
-      "%l",
-      "%p",
-    }
+    local tex_preview_executable = "skim"
+    local tex_preview_args = { "%l", "%p", "%f" }
     local texlab_build_executable = "tectonic"
     local texlab_build_args = {
       "-X",
