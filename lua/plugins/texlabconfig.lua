@@ -14,7 +14,8 @@ return {
       "--execute-command",
       "toggle_synctex", -- Open Sioyek in synctex mode.
       "--inverse-search",
-      [[nvim-texlabconfig -file %%%1 -line %%%2 -server ]] .. vim.v.servername,
+      [[/Users/salar/.local/share/nvim/lazy/nvim-texl/nvim-texlabconfig -file %%%1 -line %%%2 -server ]]
+        .. vim.v.servername,
       "--forward-search-file",
       "%f",
       "--forward-search-line",
