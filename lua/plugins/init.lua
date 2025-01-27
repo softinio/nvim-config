@@ -11,7 +11,10 @@ return {
       on_colors = function(colors)
         colors.bg = "#000000"
       end,
-      config = function()
+      config = function(_, opts)
+        local tokyonight = require("tokyonight")
+        tokyonight.setup(opts)
+        tokyonight.load()
         vim.g.tokyonight_style = "night"
         vim.g.tokyonight_italic_functions = true
         vim.o.termguicolors = true
