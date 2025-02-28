@@ -79,10 +79,11 @@ else
 
   -- [[ Highlight on yank ]]
   -- See `:help vim.highlight.on_yank()`
+  vim.api.nvim_set_hl(0, "YankHighlight", { guibg = "#d19a66" })
   local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
   vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-      vim.highlight.on_yank({ higroup = "Search" })
+      vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 1000 })
     end,
     group = highlight_group,
     pattern = "*",
