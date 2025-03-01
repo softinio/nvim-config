@@ -6,6 +6,15 @@ keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- highligh yank
+vim.api.nvim_set_hl(0, "YankHighlight", { guibg = "#d19a66" })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 1000 })
+  end,
+  pattern = "*",
+})
+
 -- yank to system clipboard
 keymap({ "n", "v" }, "<leader>y", '"+y', opts)
 
