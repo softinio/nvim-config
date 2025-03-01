@@ -10,7 +10,7 @@ vim.g.maplocalleader = " "
 vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#d19a66" })
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 1000 })
+    vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 200 })
   end,
   pattern = "*",
 })
