@@ -1,10 +1,7 @@
 return {
   "epwalsh/obsidian.nvim",
   lazy = true,
-  event = {
-    "BufReadPre " .. "'/Users/salar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Softinio'",
-    "BufNewFile " .. "'/Users/salar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Softinio'",
-  },
+  ft = "markdown",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -21,6 +18,5 @@ return {
         path = "'/Users/salar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Softinio'",
       },
     },
-    use_advanced_uri = false,
   },
 }
