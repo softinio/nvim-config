@@ -31,6 +31,9 @@ else
   -- [[ Setting options ]]
   -- See `:help vim.o`
 
+  -- conceal level (needed for obsidian)
+  vim.o.conceallevel = 1
+
   -- Set highlight on search
   vim.o.hlsearch = true
   vim.o.incsearch = true
