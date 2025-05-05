@@ -15,7 +15,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "'/Users/salar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Softinio'",
+        path = "/Users/salar/Library/Mobile Documents/iCloud~md~obsidian/Documents/Softinio",
       },
     },
   },
