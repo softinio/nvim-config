@@ -5,20 +5,22 @@ return {
   version = false,
   opts = {
     provider = "claude",
-    claude = {
-      model = "claude-3-7-sonnet-latest",
-      api_key_name = "cmd:cat " .. vim.fn.expand("~/.anthropic"),
-    },
-    openai = {
-      model = "o3-mini",
-      reasoning_effort = "high",
-      api_key_name = "cmd:cat " .. vim.fn.expand("~/.openai"),
-    },
-    vendors = {
+    providers = {
+      claude = {
+        model = "claude-sonnet-4-20250514",
+        api_key_name = "cmd:cat " .. vim.fn.expand("~/.anthropic"),
+      },
+      openai = {
+        model = "o4-mini",
+        api_key_name = "cmd:cat " .. vim.fn.expand("~/.openai"),
+        extra_request_body = {
+          reasoning_effort = "high",
+        },
+      },
       ollama = {
         __inherited_from = "openai",
         api_key_name = "",
-        endpoint = "http://127.0.0.1:11434/v1",
+        endpoint = "http://127.0.0.1:11434",
         model = "qwen2.5-coder",
       },
     },
@@ -26,12 +28,12 @@ return {
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   dependencies = {
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
     "HakonHarnes/img-clip.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
-    "MunifTanjim/nui.nvim",
-    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
-    "stevearc/dressing.nvim",
+    "folke/snacks.nvim",
   },
 }
