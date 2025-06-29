@@ -98,6 +98,7 @@ return {
       marksman = {},
       nil_ls = {},
       nixd = {},
+      pyrefly = {},
       rust_analyzer = {
         diagnostics = {
           enable = true,
