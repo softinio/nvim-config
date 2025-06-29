@@ -31,7 +31,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "HakonHarnes/img-clip.nvim",
-    "MeanderingProgrammer/render-markdown.nvim",
+    -- "MeanderingProgrammer/render-markdown.nvim",
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
     "folke/snacks.nvim",
