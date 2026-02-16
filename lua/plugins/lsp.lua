@@ -6,9 +6,6 @@ return {
 
     -- schemas for json and yaml files
     "b0o/schemastore.nvim",
-
-    -- LSP format on save
-    "lukas-reineke/lsp-format.nvim",
   },
   config = function()
     -- Enable inlay hints
@@ -22,14 +19,8 @@ return {
     -- LSP settings.
     local lspconfig = require("lspconfig")
 
-    -- Setup lsp-format
-    require("lsp-format").setup({})
-
     -- This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(client, bufnr)
-      -- Enable lsp-format on attach
-      require("lsp-format").on_attach(client, bufnr)
-
       -- We create a function that lets us more easily define mappings specific
       -- for LSP related items. It sets the mode, buffer and description for us each time.
       local nmap = function(keys, func, desc)

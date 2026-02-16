@@ -82,8 +82,6 @@ return {
   },
   -- Zig support
   "ziglang/zig.vim",
-  -- Lazy loading plugin
-  "nvim-neorocks/lz-n.nvim",
   -- File manager
   {
     "stevearc/oil.nvim",
