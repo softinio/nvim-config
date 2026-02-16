@@ -88,15 +88,11 @@ merge_fish_config() {
 
     # Add functions if they don't exist
     if ! grep -q "function gitignore" "$dest"; then
-        print_info "Adding gitignore function..."
-        echo "" >> "$temp_file"
-        grep -A 2 "function gitignore" "$src" >> "$temp_file"
-    fi
-
-    if ! grep -q "function ot" "$dest"; then
-        print_info "Adding ot function..."
-        echo "" >> "$temp_file"
-        grep -A 3 "function ot" "$src" >> "$temp_file"
+        if grep -q "function gitignore" "$src"; then
+            print_info "Adding gitignore function..."
+            echo "" >> "$temp_file"
+            grep -A 2 "function gitignore" "$src" >> "$temp_file"
+        fi
     fi
 
     # Add environment variables if they don't exist
