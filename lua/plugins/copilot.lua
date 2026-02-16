@@ -1,14 +1,23 @@
 return {
-  "github/copilot.vim",
+  "zbirenbaum/copilot.lua",
   lazy = false,
   config = function()
-    vim.api.nvim_set_keymap(
-      "i",
-      "<C-J>",
-      'copilot#Accept("\\<CR>")',
-      { silent = true, script = true, expr = true, replace_keycodes = false }
-    )
-    vim.g.copilot_no_tab_map = true
-    vim.g.copilot_assume_mapped = true
+    require("copilot").setup({
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-J>",
+          accept_word = "<C-Right>",
+          accept_line = "<C-Down>",
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+      panel = {
+        enabled = false,
+      },
+    })
   end,
 }

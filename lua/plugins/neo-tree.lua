@@ -6,20 +6,22 @@ return {
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
+  lazy = true,
   keys = {
-    { "<leader>m", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    { "<leader>m", "<cmd>Neotree action=focus reveal toggle<cr>", desc = "NeoTree" },
   },
   config = function()
     require("neo-tree").setup({
-      window = {
-        position = "right",
-      },
+      close_if_last_window = true,
       filesystem = {
         filtered_items = {
           visible = true,
-          hide_dotfiles = false,
-          hide_gitignored = true,
         },
+      },
+      window = {
+        width = 30,
+        auto_expand_width = true,
+        position = "right",
       },
     })
   end,
