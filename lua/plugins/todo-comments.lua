@@ -2,7 +2,7 @@ return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
-    { "<leader>t", "<cmd>TodoTelescope<cr>", desc = "To Do Comments" },
+    { "<leader>td", "<cmd>TodoTelescope<cr>", desc = "To Do Comments" },
   },
   opts = {
     -- your configuration comes here

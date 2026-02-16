@@ -13,53 +13,93 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp-signature-help",
+    "hrsh7th/cmp-nvim-lsp-document-symbol",
+    "davidsierradz/cmp-conventionalcommits",
+    "petertriho/cmp-git",
+    "mtoohey31/cmp-fish",
+    "onsails/lspkind.nvim",
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
+
+    -- Update completeopt
+    vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+    -- Setup lspkind
+    lspkind.init({
+      mode = "symbol_text",
+      symbol_map = {
+        Copilot = "",
+      },
+    })
 
     cmp.setup({
+      performance = {
+        debounce = 60,
+        throttle = 30,
+        fetching_timeout = 200,
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-      mapping = cmp.mapping.preset.insert({
+      mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      }),
-      sources = {
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      },
+      sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "copilot" },
         { name = "luasnip" },
-        { name = "buffer" },
+        {
+          name = "buffer",
+          option = {
+            get_bufnrs = function()
+              return vim.api.nvim_list_bufs()
+            end,
+          },
+        },
         { name = "path" },
         { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
+      }),
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          maxwidth = 50,
+          ellipsis_char = "...",
+          menu = {
+            nvim_lsp = "[LSP]",
+            copilot = "[copilot]",
+            luasnip = "[snip]",
+            buffer = "[buffer]",
+            path = "[path]",
+            nvim_lua = "[api]",
+          },
+        }),
       },
     })
+
+    -- Setup for git commits
+    cmp.setup.filetype("gitcommit", {
+      sources = cmp.config.sources({
+        { name = "git" },
+        { name = "conventionalcommits" },
+      }, {
+        { name = "buffer" },
+      }),
+    })
+
+    -- Configure cmp-git
+    require("cmp_git").setup()
 
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

@@ -3,6 +3,7 @@ return {
   config = function()
     require("conform").setup({
       formatters_by_ft = {
+        json = { "prettier" },
         lua = { "stylua" },
         nix = { "nixfmt" },
         python = function(bufnr)
@@ -14,6 +15,7 @@ return {
         end,
         scala = { "scalafmt" },
         swift = { "swift_format" },
+        zig = { "zigfmt" },
         ["*"] = { "trim_whitespace", "trim_newlines" },
       },
       format_on_save = function(bufnr)
@@ -21,7 +23,20 @@ return {
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end
+        -- Skip scala files, they use format_after_save due to slow JVM startup
+        if vim.bo[bufnr].filetype == "scala" then
+          return
+        end
         return { timeout_ms = 500, lsp_fallback = true }
+      end,
+      format_after_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        -- Only use format_after_save for scala (scalafmt is slow)
+        if vim.bo[bufnr].filetype == "scala" then
+          return { lsp_fallback = true }
+        end
       end,
     })
 

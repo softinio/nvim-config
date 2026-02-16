@@ -1,0 +1,34 @@
+# Jujutsu Configuration
+# Converted from nixpkgs configuration
+# Installation: mkdir -p ~/.config/jj && cp jj-config.toml ~/.config/jj/config.toml
+
+[user]
+name = "Salar Rahmanian"
+email = "code@softinio.com"
+
+[ui]
+default-command = "st"
+editor = "nvim"
+pager = "less -FRX"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+merge-editor = ["nvim", "-d", "$left", "$right", "$output", "-c", "wincmd w", "-c", "wincmd J"]
+
+[git]
+subprocess = true
+
+[gerrit]
+enabled = false
+
+[signing]
+key = "~/.ssh/id_ed25519.pub"
+
+[templates]
+git_push_bookmark = "\"softinio-push-\" ++ change_id.short()"
+
+[aliases]
+# Show last 2 commits in the current branch
+l = ["log", "-r", "ancestors(reachable(@, mutable()), 2)"]
+# Create new change
+n = ["new"]
+# Move bookmark from current commit to parent
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]

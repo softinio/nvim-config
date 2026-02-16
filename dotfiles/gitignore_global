@@ -1,0 +1,32 @@
+# Global Git Ignore
+# Converted from nixpkgs configuration
+# Installation: cp gitignore_global ~/.gitignore_global
+
+# macOS
+.DS_Store
+
+# Scala/Metals
+*.bloop
+*.metals
+*.metals.sbt
+*metals.sbt
+
+# IDE
+.idea/
+*.vscode
+
+# Python
+.mypy_cache
+
+# Direnv
+.direnv/
+*.envrc
+
+# Haskell
+*hie.yaml
+
+# Darcs
+_darcs/
+
+# Nix
+result

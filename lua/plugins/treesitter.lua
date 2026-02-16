@@ -34,7 +34,6 @@ return {
         "javascript",
         "json",
         "json5",
-        "jsonc",
         "latex",
         "lua",
         "make",
@@ -45,15 +44,16 @@ return {
         "python",
         "rust",
         "scala",
-        "scss",
         "sql",
         "swift",
         "terraform",
         "toml",
         "typescript",
+        "typst",
         "vim",
         "xml",
         "yaml",
+        "zig",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -65,11 +65,10 @@ return {
 
       highlight = { enable = true },
       indent = {
-        enable = true,
-        disable = {
-          "python",
-          "css",
-        },
+        enable = false,
+      },
+      folding = {
+        enable = false,
       },
       incremental_selection = {
         enable = true,
